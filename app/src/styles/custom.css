@@ -189,27 +189,9 @@ header.header {
 	border-color: #8ab4e8;
 }
 
-/* Improved code blocks */
-.sl-markdown-content pre {
-	border-radius: 8px;
-	border: 1px solid var(--sl-color-gray-3);
-}
+/* Improved code blocks - removed, see full styling below */
 
-/* Better tables */
-.sl-markdown-content table {
-	border-radius: 8px;
-	overflow: hidden;
-}
-
-.sl-markdown-content th {
-	background-color: #182844;
-	color: #ffffff;
-	font-family: 'Ubuntu', sans-serif;
-}
-
-:root[data-theme='dark'] .sl-markdown-content th {
-	background-color: #1e3a5f;
-}
+/* Tables are styled in the comprehensive section below */
 
 /* Checkbox styling for checklists */
 .sl-markdown-content input[type="checkbox"] {
@@ -413,22 +395,196 @@ footer {
 	border-color: #3a6ea5;
 }
 
-/* Code blocks */
-.sl-markdown-content pre {
-	background-color: #1a1a2e !important;
-	border: 1px solid #3a6ea5;
+/* ============================================
+   CODE BLOCKS - High contrast for readability
+   ============================================ */
+
+/* Base pre element */
+pre,
+.sl-markdown-content pre,
+pre.expressive-code,
+.expressive-code pre,
+figure.expressive-code pre,
+.expressive-code .ec-line {
+	background-color: #0f1729 !important;
 }
 
-.sl-markdown-content pre code {
-	color: #e8f0f8;
+/* Pre wrapper styling */
+.sl-markdown-content pre {
+	border: 2px solid #3a6ea5 !important;
+	border-radius: 8px !important;
+	padding: 1.25rem !important;
+	margin: 1.5rem 0 !important;
+	overflow-x: auto;
+}
+
+/* All code text inside pre - FORCE white/light text */
+pre code,
+pre span,
+pre div,
+.sl-markdown-content pre code,
+.sl-markdown-content pre span,
+.sl-markdown-content pre *,
+.expressive-code code,
+.expressive-code span,
+.expressive-code .ec-line,
+.expressive-code .ec-line span,
+.expressive-code .ec-line code,
+figure.expressive-code code,
+figure.expressive-code span {
+	color: #e8f0f8 !important;
+	font-family: ui-monospace, 'Cascadia Code', 'Segoe UI Mono', Consolas, monospace !important;
+	font-size: 0.875rem !important;
+	line-height: 1.7 !important;
+}
+
+/* Expressive Code wrapper */
+.expressive-code,
+figure.expressive-code {
+	background-color: transparent !important;
+	margin: 1.5rem 0 !important;
+}
+
+.expressive-code .frame,
+.expressive-code figure,
+.expressive-code .frame pre {
+	background-color: #0f1729 !important;
+	border: 2px solid #3a6ea5 !important;
+	border-radius: 8px !important;
+}
+
+/* Code header/title bar */
+.expressive-code .header,
+.expressive-code figcaption,
+.expressive-code .frame header {
+	background-color: #182844 !important;
+	color: #ffffff !important;
+	border-bottom: 1px solid #3a6ea5 !important;
+	padding: 0.5rem 1rem !important;
+	font-family: 'Ubuntu', sans-serif !important;
+}
+
+/* Syntax highlighting - all tokens light colored */
+.expressive-code .token,
+.sl-markdown-content pre .token,
+pre .token {
+	color: #e8f0f8 !important;
+}
+
+/* Comments - slightly dimmer */
+.expressive-code .comment,
+.sl-markdown-content pre .comment,
+pre .comment,
+.ec-line .comment {
+	color: #8ab4e8 !important;
+	font-style: italic;
+}
+
+/* Strings - green */
+.expressive-code .string,
+.sl-markdown-content pre .string,
+pre .string,
+.ec-line .string {
+	color: #7ee787 !important;
+}
+
+/* Keywords - coral/red */
+.expressive-code .keyword,
+.sl-markdown-content pre .keyword,
+pre .keyword,
+.ec-line .keyword {
+	color: #ff7b72 !important;
+}
+
+/* Functions - purple */
+.expressive-code .function,
+.sl-markdown-content pre .function,
+pre .function,
+.ec-line .function {
+	color: #d2a8ff !important;
+}
+
+/* Numbers - cyan */
+.expressive-code .number,
+.sl-markdown-content pre .number,
+pre .number,
+.ec-line .number {
+	color: #79c0ff !important;
+}
+
+/* Properties - orange */
+.expressive-code .property,
+.sl-markdown-content pre .property,
+pre .property,
+.ec-line .property {
+	color: #ffa657 !important;
+}
+
+/* Punctuation */
+.expressive-code .punctuation,
+.sl-markdown-content pre .punctuation,
+pre .punctuation {
+	color: #e8f0f8 !important;
+}
+
+/* Line numbers */
+.expressive-code .line-numbers,
+.expressive-code .lineNumbers,
+.expressive-code .gutter {
+	color: #6c757d !important;
+	border-right: 1px solid #3a6ea5 !important;
+	padding-right: 1rem !important;
+	margin-right: 1rem !important;
+}
+
+/* Copy button */
+.expressive-code .copy button,
+.expressive-code button[data-code] {
+	background-color: #3a6ea5 !important;
+	color: #ffffff !important;
+	border: none !important;
+	border-radius: 4px !important;
+}
+
+.expressive-code .copy button:hover,
+.expressive-code button[data-code]:hover {
+	background-color: #2d5a8a !important;
+}
+
+/* Ensure scrollbar is visible on dark background */
+pre::-webkit-scrollbar {
+	height: 8px;
+	background-color: #182844;
+}
+
+pre::-webkit-scrollbar-thumb {
+	background-color: #3a6ea5;
+	border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+	background-color: #5a8ec5;
 }
 
 /* Tables - full styling */
+/* Remove any wrapper borders */
+.sl-markdown-content .table-container,
+.sl-markdown-content div:has(> table),
+.sl-markdown-content figure:has(> table) {
+	border: none !important;
+	background: transparent !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	width: auto !important;
+}
+
 .sl-markdown-content table {
-	border: 2px solid #182844;
-	border-collapse: separate;
-	border-spacing: 0;
-	width: 100%;
+	border: none;
+	border-collapse: collapse;
+	width: auto;
+	max-width: 100%;
+	table-layout: auto;
+	margin: 1.5rem 0;
 }
 
 .sl-markdown-content th {
@@ -438,13 +594,14 @@ footer {
 	font-weight: 600;
 	padding: 12px 16px;
 	text-align: left;
+	border: 1px solid #182844;
 }
 
 .sl-markdown-content td {
 	background-color: #ffffff;
 	color: #182844;
 	padding: 12px 16px;
-	border-bottom: 1px solid #dee2e6;
+	border: 1px solid #c5d9ed;
 }
 
 .sl-markdown-content tr:nth-child(even) td {
@@ -456,13 +613,18 @@ footer {
 }
 
 :root[data-theme='dark'] .sl-markdown-content table {
-	border-color: #5a8ec5;
+	border: none;
+}
+
+:root[data-theme='dark'] .sl-markdown-content th {
+	background-color: #1e3a5f;
+	border-color: #1e3a5f;
 }
 
 :root[data-theme='dark'] .sl-markdown-content td {
 	background-color: #0f1729;
 	color: #e8f0f8;
-	border-bottom-color: #2d3748;
+	border-color: #2d3748;
 }
 
 :root[data-theme='dark'] .sl-markdown-content tr:nth-child(even) td {
