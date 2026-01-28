@@ -1,0 +1,676 @@
+/* Custom styles for Handoff de Figma course */
+
+/* Import Ubuntu font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+:root {
+	/* Primary colors - Custom blue */
+	--sl-color-accent-low: #e8f0f8;
+	--sl-color-accent: #3a6ea5;
+	--sl-color-accent-high: #182844;
+
+	/* Background colors */
+	--sl-color-bg: #ffffff;
+	--sl-color-bg-nav: #182844;
+	--sl-color-bg-sidebar: #f8fafc;
+
+	/* Button colors - lighter tone */
+	--sl-color-text-accent: #3a6ea5;
+
+	/* Text colors - using blue #182844 for body text */
+	--sl-color-text: #182844;
+	--sl-color-text-invert: #ffffff;
+	--sl-color-white: #ffffff;
+	--sl-color-gray-1: #f8f9fa;
+	--sl-color-gray-2: #e9ecef;
+	--sl-color-gray-3: #dee2e6;
+	--sl-color-gray-4: #ced4da;
+	--sl-color-gray-5: #4a5568;
+	--sl-color-gray-6: #2d3748;
+	--sl-color-black: #182844;
+
+	/* Typography - Ubuntu for headings, Verdana for body */
+	--sl-font: Verdana, Geneva, sans-serif;
+	--sl-font-system: Verdana, Geneva, sans-serif;
+	--sl-font-system-mono: ui-monospace, 'Cascadia Code', 'Segoe UI Mono', 'Liberation Mono', Menlo, Monaco, Consolas, monospace;
+}
+
+/* Dark mode adjustments */
+:root[data-theme='dark'] {
+	--sl-color-accent-low: #1e3a5f;
+	--sl-color-accent: #5a8ec5;
+	--sl-color-accent-high: #8ab4e8;
+	--sl-color-bg: #0f1729;
+	--sl-color-bg-nav: #0a1020;
+	--sl-color-bg-sidebar: #141e33;
+	--sl-color-text: #e8f0f8;
+}
+
+:root[data-theme='dark'] body,
+:root[data-theme='dark'] .sl-markdown-content,
+:root[data-theme='dark'] .sl-markdown-content p,
+:root[data-theme='dark'] .sl-markdown-content li,
+:root[data-theme='dark'] .sl-markdown-content td {
+	color: #e8f0f8;
+}
+
+/* Headings - Ubuntu font */
+h1, h2, h3, h4, h5, h6,
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.sl-markdown-content h4,
+.sl-markdown-content h5,
+.sl-markdown-content h6 {
+	font-family: 'Ubuntu', sans-serif !important;
+	font-weight: 700;
+	color: var(--sl-color-black);
+}
+
+/* Site title */
+.site-title {
+	font-family: 'Ubuntu', sans-serif !important;
+	font-weight: 700;
+}
+
+/* Navigation and sidebar headings */
+nav h2,
+.sidebar-content h2,
+starlight-menu-button {
+	font-family: 'Ubuntu', sans-serif !important;
+}
+
+/* Body text color */
+body,
+.sl-markdown-content,
+.sl-markdown-content p,
+.sl-markdown-content li,
+.sl-markdown-content td {
+	color: #182844;
+}
+
+/* Hero section */
+.hero .tagline {
+	font-family: Verdana, Geneva, sans-serif;
+	color: #182844;
+}
+
+.hero h1 {
+	font-family: 'Ubuntu', sans-serif !important;
+	color: var(--sl-color-accent-high);
+}
+
+/* Buttons - lighter blue tone */
+.sl-link-button,
+a.sl-link-button {
+	background-color: #3a6ea5 !important;
+	border-color: #3a6ea5 !important;
+	color: #ffffff !important;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 500;
+}
+
+.sl-link-button:hover,
+a.sl-link-button:hover {
+	background-color: #2d5a8a !important;
+	border-color: #2d5a8a !important;
+}
+
+.sl-link-button[data-variant="secondary"],
+a.sl-link-button[data-variant="secondary"] {
+	background-color: transparent !important;
+	border-color: #3a6ea5 !important;
+	color: #3a6ea5 !important;
+}
+
+.sl-link-button[data-variant="secondary"]:hover,
+a.sl-link-button[data-variant="secondary"]:hover {
+	background-color: #e8f0f8 !important;
+}
+
+/* Header/Navigation background */
+header.header {
+	background-color: var(--sl-color-bg-nav);
+}
+
+/* Link cards - WCAG AA compliant contrast (4.5:1 minimum) */
+.sl-link-card {
+	background-color: #ffffff;
+	border: 2px solid #3a6ea5;
+	border-radius: 8px;
+}
+
+.sl-link-card .sl-flex {
+	color: #182844;
+}
+
+/* Card title - #182844 on white = 12.6:1 contrast ratio (AAA) */
+.sl-link-card .card-title,
+.sl-link-card span[class*="title"],
+.sl-link-card .sl-flex > span:first-child {
+	color: #182844 !important;
+	font-family: 'Ubuntu', sans-serif !important;
+	font-weight: 700;
+}
+
+/* Card description - #182844 on white = 12.6:1 contrast ratio (AAA) */
+.sl-link-card .card-description,
+.sl-link-card span[class*="description"],
+.sl-link-card .sl-flex > span:last-child {
+	color: #182844 !important;
+	opacity: 1 !important;
+}
+
+/* Force all text inside cards to be readable */
+.sl-link-card * {
+	color: #182844;
+}
+
+.sl-link-card:hover {
+	border-color: #182844;
+	background-color: #e8f0f8;
+	box-shadow: 0 4px 12px rgba(24, 40, 68, 0.15);
+}
+
+/* Dark mode cards */
+:root[data-theme='dark'] .sl-link-card {
+	background-color: #1e3a5f;
+	border-color: #5a8ec5;
+}
+
+:root[data-theme='dark'] .sl-link-card *,
+:root[data-theme='dark'] .sl-link-card .sl-flex,
+:root[data-theme='dark'] .sl-link-card span {
+	color: #ffffff !important;
+}
+
+:root[data-theme='dark'] .sl-link-card:hover {
+	background-color: #2a4a7a;
+	border-color: #8ab4e8;
+}
+
+/* Improved code blocks */
+.sl-markdown-content pre {
+	border-radius: 8px;
+	border: 1px solid var(--sl-color-gray-3);
+}
+
+/* Better tables */
+.sl-markdown-content table {
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.sl-markdown-content th {
+	background-color: #182844;
+	color: #ffffff;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+:root[data-theme='dark'] .sl-markdown-content th {
+	background-color: #1e3a5f;
+}
+
+/* Checkbox styling for checklists */
+.sl-markdown-content input[type="checkbox"] {
+	margin-right: 0.5rem;
+	transform: scale(1.2);
+	accent-color: #3a6ea5;
+}
+
+/* Better list spacing */
+.sl-markdown-content ul,
+.sl-markdown-content ol {
+	margin-bottom: 1rem;
+}
+
+.sl-markdown-content li {
+	margin-bottom: 0.25rem;
+}
+
+/* Improved headings */
+.sl-markdown-content h2 {
+	margin-top: 2.5rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 2px solid #182844;
+	color: #182844;
+}
+
+.sl-markdown-content h3 {
+	margin-top: 2rem;
+	color: #2d5a8a;
+}
+
+/* Card-like blockquotes */
+.sl-markdown-content blockquote {
+	border-radius: 8px;
+	background-color: #f0f5fa;
+	border-left: 4px solid #182844;
+	padding: 1rem 1.5rem;
+}
+
+:root[data-theme='dark'] .sl-markdown-content blockquote {
+	background-color: #1e3a5f;
+	border-left-color: #5a8ec5;
+}
+
+/* Hero section adjustments */
+.hero {
+	padding: 3rem 0;
+}
+
+/* Navigation improvements */
+nav[aria-label="Main"] {
+	font-weight: 500;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+/* Sidebar styling - Left navigation */
+.sidebar-content {
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+/* Sidebar group titles (Módulos del Curso, Recursos) */
+.sidebar-content .top-level > li > details > summary,
+.sidebar-content summary,
+.sidebar-content .large,
+.sidebar-content details > summary > div,
+.sidebar-content details > summary span,
+.sidebar-content > ul > li > details > summary {
+	color: #182844 !important;
+	font-family: 'Ubuntu', sans-serif !important;
+	font-weight: 700 !important;
+}
+
+/* All sidebar text */
+.sidebar-content,
+.sidebar-content li,
+.sidebar-content span {
+	color: #182844;
+}
+
+.sidebar-content a {
+	color: #182844;
+}
+
+.sidebar-content a:hover {
+	color: #3a6ea5;
+}
+
+/* Dark mode sidebar */
+:root[data-theme='dark'] .sidebar-content,
+:root[data-theme='dark'] .sidebar-content li,
+:root[data-theme='dark'] .sidebar-content span,
+:root[data-theme='dark'] .sidebar-content summary,
+:root[data-theme='dark'] .sidebar-content details > summary > div,
+:root[data-theme='dark'] .sidebar-content details > summary span {
+	color: #e8f0f8 !important;
+}
+
+:root[data-theme='dark'] .sidebar-content a {
+	color: #a0aec0;
+}
+
+:root[data-theme='dark'] .sidebar-content a:hover {
+	color: #ffffff;
+}
+
+/* Footer spacing */
+footer {
+	margin-top: 3rem;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+/* Search input */
+.search-input {
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+/* Pagination - Previous/Next navigation */
+.pagination-links a {
+	font-family: 'Ubuntu', sans-serif;
+	border: 2px solid #3a6ea5;
+	background-color: #ffffff;
+	border-radius: 8px;
+}
+
+.pagination-links a:hover {
+	background-color: #e8f0f8;
+	border-color: #182844;
+}
+
+.pagination-links a span {
+	color: #182844 !important;
+}
+
+.pagination-links .link-title {
+	color: #182844 !important;
+	font-weight: 600;
+}
+
+.pagination-links .link-page {
+	color: #3a6ea5 !important;
+}
+
+:root[data-theme='dark'] .pagination-links a {
+	background-color: #1e3a5f;
+	border-color: #5a8ec5;
+}
+
+:root[data-theme='dark'] .pagination-links a span,
+:root[data-theme='dark'] .pagination-links .link-title {
+	color: #ffffff !important;
+}
+
+/* ============================================
+   INTERIOR PAGES - WCAG AA Contrast Compliance
+   ============================================ */
+
+/* Links in content - #2d5a8a on white = 7.5:1 (AAA) */
+.sl-markdown-content a {
+	color: #2d5a8a;
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.sl-markdown-content a:hover {
+	color: #182844;
+}
+
+:root[data-theme='dark'] .sl-markdown-content a {
+	color: #8ab4e8;
+}
+
+:root[data-theme='dark'] .sl-markdown-content a:hover {
+	color: #ffffff;
+}
+
+/* Strong/Bold text */
+.sl-markdown-content strong,
+.sl-markdown-content b {
+	color: #182844;
+	font-weight: 700;
+}
+
+:root[data-theme='dark'] .sl-markdown-content strong,
+:root[data-theme='dark'] .sl-markdown-content b {
+	color: #ffffff;
+}
+
+/* Inline code - high contrast */
+.sl-markdown-content code:not(pre code) {
+	background-color: #e8f0f8;
+	color: #182844;
+	padding: 0.2em 0.4em;
+	border-radius: 4px;
+	font-size: 0.9em;
+	border: 1px solid #c5d9ed;
+}
+
+:root[data-theme='dark'] .sl-markdown-content code:not(pre code) {
+	background-color: #1e3a5f;
+	color: #e8f0f8;
+	border-color: #3a6ea5;
+}
+
+/* Code blocks */
+.sl-markdown-content pre {
+	background-color: #1a1a2e !important;
+	border: 1px solid #3a6ea5;
+}
+
+.sl-markdown-content pre code {
+	color: #e8f0f8;
+}
+
+/* Tables - full styling */
+.sl-markdown-content table {
+	border: 2px solid #182844;
+	border-collapse: separate;
+	border-spacing: 0;
+	width: 100%;
+}
+
+.sl-markdown-content th {
+	background-color: #182844;
+	color: #ffffff !important;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 600;
+	padding: 12px 16px;
+	text-align: left;
+}
+
+.sl-markdown-content td {
+	background-color: #ffffff;
+	color: #182844;
+	padding: 12px 16px;
+	border-bottom: 1px solid #dee2e6;
+}
+
+.sl-markdown-content tr:nth-child(even) td {
+	background-color: #f8fafc;
+}
+
+.sl-markdown-content tr:hover td {
+	background-color: #e8f0f8;
+}
+
+:root[data-theme='dark'] .sl-markdown-content table {
+	border-color: #5a8ec5;
+}
+
+:root[data-theme='dark'] .sl-markdown-content td {
+	background-color: #0f1729;
+	color: #e8f0f8;
+	border-bottom-color: #2d3748;
+}
+
+:root[data-theme='dark'] .sl-markdown-content tr:nth-child(even) td {
+	background-color: #141e33;
+}
+
+:root[data-theme='dark'] .sl-markdown-content tr:hover td {
+	background-color: #1e3a5f;
+}
+
+/* Lists with proper contrast */
+.sl-markdown-content ul li::marker,
+.sl-markdown-content ol li::marker {
+	color: #3a6ea5;
+}
+
+.sl-markdown-content li {
+	color: #182844;
+}
+
+:root[data-theme='dark'] .sl-markdown-content li {
+	color: #e8f0f8;
+}
+
+:root[data-theme='dark'] .sl-markdown-content ul li::marker,
+:root[data-theme='dark'] .sl-markdown-content ol li::marker {
+	color: #8ab4e8;
+}
+
+/* Blockquotes in content */
+.sl-markdown-content blockquote {
+	background-color: #f0f5fa;
+	border-left: 4px solid #182844;
+	color: #182844;
+}
+
+.sl-markdown-content blockquote p {
+	color: #182844;
+}
+
+:root[data-theme='dark'] .sl-markdown-content blockquote {
+	background-color: #1e3a5f;
+	border-left-color: #5a8ec5;
+}
+
+:root[data-theme='dark'] .sl-markdown-content blockquote p {
+	color: #e8f0f8;
+}
+
+/* Horizontal rules */
+.sl-markdown-content hr {
+	border-color: #3a6ea5;
+	border-width: 2px;
+	margin: 2rem 0;
+}
+
+/* Table of Contents (right sidebar) */
+.right-sidebar-container {
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+.right-sidebar a {
+	color: #4a5568;
+}
+
+.right-sidebar a:hover,
+.right-sidebar a[aria-current="true"] {
+	color: #182844;
+	font-weight: 600;
+}
+
+:root[data-theme='dark'] .right-sidebar a {
+	color: #a0aec0;
+}
+
+:root[data-theme='dark'] .right-sidebar a:hover,
+:root[data-theme='dark'] .right-sidebar a[aria-current="true"] {
+	color: #ffffff;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+.breadcrumbs a {
+	color: #3a6ea5;
+}
+
+.breadcrumbs a:hover {
+	color: #182844;
+}
+
+.breadcrumbs li:last-child {
+	color: #182844;
+	font-weight: 600;
+}
+
+:root[data-theme='dark'] .breadcrumbs a {
+	color: #8ab4e8;
+}
+
+:root[data-theme='dark'] .breadcrumbs li:last-child {
+	color: #ffffff;
+}
+
+/* Page title */
+.content-panel h1 {
+	color: #182844 !important;
+	font-family: 'Ubuntu', sans-serif !important;
+}
+
+:root[data-theme='dark'] .content-panel h1 {
+	color: #ffffff !important;
+}
+
+/* Headings hierarchy with proper contrast */
+.sl-markdown-content h1 {
+	color: #182844;
+	font-size: 2rem;
+}
+
+.sl-markdown-content h2 {
+	color: #182844;
+	font-size: 1.5rem;
+	border-bottom: 2px solid #3a6ea5;
+}
+
+.sl-markdown-content h3 {
+	color: #182844;
+	font-size: 1.25rem;
+}
+
+.sl-markdown-content h4 {
+	color: #2d5a8a;
+	font-size: 1.1rem;
+}
+
+:root[data-theme='dark'] .sl-markdown-content h1,
+:root[data-theme='dark'] .sl-markdown-content h2,
+:root[data-theme='dark'] .sl-markdown-content h3 {
+	color: #ffffff;
+}
+
+:root[data-theme='dark'] .sl-markdown-content h4 {
+	color: #8ab4e8;
+}
+
+:root[data-theme='dark'] .sl-markdown-content h2 {
+	border-bottom-color: #5a8ec5;
+}
+
+/* Sidebar navigation - left */
+.sidebar-content summary,
+.sidebar-content li {
+	color: #182844;
+}
+
+.sidebar-content a[aria-current="page"] {
+	color: #182844;
+	font-weight: 700;
+	background-color: #e8f0f8;
+	border-left: 3px solid #3a6ea5;
+}
+
+:root[data-theme='dark'] .sidebar-content summary,
+:root[data-theme='dark'] .sidebar-content li {
+	color: #e8f0f8;
+}
+
+:root[data-theme='dark'] .sidebar-content a {
+	color: #a0aec0;
+}
+
+:root[data-theme='dark'] .sidebar-content a:hover {
+	color: #ffffff;
+}
+
+:root[data-theme='dark'] .sidebar-content a[aria-current="page"] {
+	color: #ffffff;
+	background-color: #1e3a5f;
+	border-left-color: #5a8ec5;
+}
+
+/* Search modal */
+.search-input {
+	color: #182844;
+	background-color: #ffffff;
+	border: 2px solid #3a6ea5;
+}
+
+.search-input::placeholder {
+	color: #6c757d;
+}
+
+/* Mobile menu */
+starlight-menu-button button {
+	color: #ffffff;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+	background-color: #182844;
+	color: #ffffff;
+}
+
+/* Focus states for accessibility */
+*:focus-visible {
+	outline: 3px solid #3a6ea5;
+	outline-offset: 2px;
+}
